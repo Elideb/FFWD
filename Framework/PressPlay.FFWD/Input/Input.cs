@@ -305,6 +305,15 @@ namespace PressPlay.FFWD
                     return _currentKeyboardState.IsKeyDown(Keys.Down)
                         ? -1
                         : _currentKeyboardState.IsKeyDown(Keys.Up) ? 1 : 0;
+                } else if (axisName.Equals("Mouse X"))
+                {
+                    return _currentMouseState.X - _lastMouseState.X;
+                } else if (axisName.Equals("Mouse Y"))
+                {
+                    return _currentMouseState.Y - _lastMouseState.Y;
+                } else if (axisName.Equals("Mouse ScrollWheel"))
+                {
+                    return (float)(_currentMouseState.ScrollWheelValue - _lastMouseState.ScrollWheelValue) / 120f;
                 }
             }
 #endif
